@@ -27,8 +27,8 @@ export default class SwapList extends Component {
       <div styleName="stepList">
         {
           this.props.data.step >= 1 ? (
-            <div styleName={this.props.data.step === 1 && this.props.data.step < 2 ? 'stepItem active' : 'stepItem active checked'}>
-              <span styleName="stepNumber">{this.props.data.step === 1 && this.props.data.step < 2 ? '1' : <i className="fas fa-check" />}</span>
+            <div styleName={this.props.data.step >= 1 && this.props.data.step < 2 ? 'stepItem active' : 'stepItem active checked'}>
+              <span styleName="stepNumber">{this.props.data.step >= 1 && this.props.data.step < 2 ? '1' : <i className="fas fa-check" />}</span>
               <p styleName="stepText">Confirmation processing</p>
             </div>
           ) : (
@@ -40,9 +40,9 @@ export default class SwapList extends Component {
         }
 
         {
-          this.props.data.step >= 2 ? (
-            <div styleName={this.props.data.step === 2 && this.props.data.step <= 3 ? 'stepItem active' : 'stepItem active checked'}>
-              <span styleName="stepNumber">{this.props.data.step === 2 && this.props.data.step < 3 ? '2' : <i className="fas fa-check" />}</span>
+          this.props.data.step >= 2 || (this.props.data.step > 2 && this.props.data.step <= 8) ? (
+            <div styleName={this.props.data.step >= 2 && this.props.data.step < 5  ? 'stepItem active' : 'stepItem active checked'}>
+              <span styleName="stepNumber">{this.props.data.step >= 2 && this.props.data.step < 5 ? '2' : <i className="fas fa-check" />}</span>
               <p styleName="stepText">Bitcoin deposition</p>
             </div>
           ) : (
@@ -54,9 +54,9 @@ export default class SwapList extends Component {
         }
 
         {
-          this.props.data.step >= 4 ? (
-            <div styleName={this.props.data.step === 4 && this.props.data.step < 5 ? 'stepItem active' : 'stepItem active checked'}>
-              <span styleName="stepNumber">{this.props.data.step === 4 && this.props.data.step < 5 ? '3' : <i className="fas fa-check" />}</span>
+          this.props.data.step >= 5 ? (
+            <div styleName={this.props.data.step >= 5 && this.props.data.step < 6 ? 'stepItem active' : 'stepItem active checked'}>
+              <span styleName="stepNumber">{this.props.data.step >= 5 && this.props.data.step < 6 ? '3' : <i className="fas fa-check" />}</span>
               <p styleName="stepText">Swap tokens deposition</p>
             </div>
           ) : (
@@ -68,9 +68,9 @@ export default class SwapList extends Component {
         }
 
         {
-          this.props.data.step >= 5 ? (
-            <div styleName={this.props.data.step >= 5 && this.props.data.step < 6 ? 'stepItem active' : 'stepItem active checked'}>
-              <span styleName="stepNumber">{this.props.data.step >= 5 && this.props.data.step < 6 ? '4' : <i className="fas fa-check" />}</span>
+          this.props.data.step >= 6 ? (
+            <div styleName={this.props.data.step >= 6 && this.props.data.step < 7 ? 'stepItem active' : 'stepItem active checked'}>
+              <span styleName="stepNumber">{this.props.data.step >= 6 && this.props.data.step < 7 ? '4' : <i className="fas fa-check" />}</span>
               <p styleName="stepText">Withdrawing swap tokens from a contract</p>
             </div>
           ) : (
@@ -81,9 +81,9 @@ export default class SwapList extends Component {
           )
         }
         {
-          this.props.data.step >= 6 ? (
-            <div styleName={this.props.data.step >= 6 && this.props.data.step < 7 ? 'stepItem active' : 'stepItem active checked'}>
-              <span styleName="stepNumber">{this.props.data.step >= 6 && this.props.data.step < 7 ? '5' : <i className="fas fa-check" />}</span>
+          this.props.data.step >= 7 ? (
+            <div styleName={this.props.data.step >= 7 && this.props.data.step < 8 ? 'stepItem active' : 'stepItem active checked'}>
+              <span styleName="stepNumber">{this.props.data.step >= 7 && this.props.data.step < 8 ? '5' : <i className="fas fa-check" />}</span>
               <p styleName="stepText">Finished!</p>
             </div>
           ) : (
