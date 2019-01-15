@@ -1,9 +1,5 @@
 .swap {
-  padding-left: 30px;
-  padding-top: 60px;
-  min-height: calc(100vh - 75px);
-  width: 600px;
-  margin: -2% 20% 0;
+  padding-top: 120px;
 }
 @include media-mobile {
   .swap {
@@ -15,6 +11,9 @@
 
 .swapContainer {
   color: #000;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .swapStep-4 {
@@ -46,7 +45,7 @@
 .topUpLink {
   border: 1px solid #cecece;
   font-size: 18px;
-  margin-top: 40px;
+  margin-top: 0px;
   position: relative;
   padding: 25px 25px;
   padding-left: 45px;
@@ -55,6 +54,7 @@
   text-align: left;
   padding-bottom: 75px;
   background: white;
+  max-width: 600px;
   &:hover {
     color: #ff1fc5;
   }
@@ -91,6 +91,8 @@
 .qrImg {
   position: relative;
   padding: 0;
+  margin-left: 4px;
+  margin-top: 0px;
 }
 
 @include media-mobile {
@@ -108,7 +110,7 @@
 .btcMessage {
   margin-top: 0.5em;
   max-width: 100%;
-  font-size: 29px;
+  font-size: 28px;
   display: block;
 }
 
@@ -173,6 +175,14 @@
   text-align: center;
 }
 
+.swapInfo {
+  position: absolute;
+  width: 600px;
+  top: -45px;
+  text-align: center;
+  font-size: 18px;
+}
+
 .qr {
   margin-bottom: 20px;
   display: flex;
@@ -197,6 +207,7 @@
     background: #eee;
     color: #000;
     margin-top: 13px;
+    align-items: center;
     margin-left: 15px;
     &:hover {
       background: #eee
@@ -247,7 +258,7 @@
 .buyWithCard {
   text-decoration: none;
   border-radius: 6px;
-  font-size: 21px;
+  font-size: 20px;
   align-items: center;
   height: 56px;
   display: flex;
@@ -342,3 +353,8 @@ h3 {
   font-size: 20px;
 }
 
+
+.icon {
+  margin-right: 1%;
+  cursor: pointer;
+}

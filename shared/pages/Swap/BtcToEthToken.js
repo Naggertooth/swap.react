@@ -14,11 +14,13 @@ import TimerButton from 'components/controls/TimerButton/TimerButton'
 import Link from 'sw-valuelink'
 import Input from 'components/forms/Input/Input'
 import Button from 'components/controls/Button/Button'
+import DepositWindow from './DepositWindow/DepositWindow'
+import SwapProgress from 'components/SwapProgress/SwapProgress'
+import SwapList from './SwapList/SwapList'
 import QR from 'components/QR/QR'
 import swapApp from 'swap.app'
 import Timer from './Timer/Timer'
 import { FormattedMessage } from 'react-intl'
-import DepositWindow from './DepositWindow/DepositWindow'
 
 
 export default class BtcToEthToken extends Component {
@@ -155,19 +157,26 @@ export default class BtcToEthToken extends Component {
     linked.destinationBuyAddress.check((value) => value !== '', 'Please enter ETH address for tokens')
     return (
       <div className={this.props.styles.swapContainer}>
-        {
-          this.swap.id && (
-            <strong>
-              {this.swap.sellAmount.toFixed(6)}
-              {' '}
-              {this.swap.sellCurrency} &#10230;
-              {this.swap.buyAmount.toFixed(6)}
-              {' '}
-              {this.swap.buyCurrency}
-            </strong>
-          )
+        {(!enoughtBalance && flow.step === 4) ? ( <div className="swapStep-4">
+          <DepositWindow currencyData={currencyData} swap={swap} flow={swap.flow.state} /> </div> ) : (<SwapProgress data={flow} name="BTC2ETH" stepLength={8} />)
         }
-        <div>
+        <SwapList data={flow} />
+
+        <div className={this.props.styles.swapInfo}>
+          {
+            this.swap.id && (
+              <strong>
+                {this.swap.sellAmount.toFixed(6)}
+                {' '}
+                {this.swap.sellCurrency} &#10230;
+                {this.swap.buyAmount.toFixed(6)}
+                {' '}
+                {this.swap.buyCurrency}
+              </strong>
+            )
+          }
+        </div>
+        <div className={this.props.styles.logHide}>
           {
             flow.isWaitingForOwner && (
               <Fragment>
