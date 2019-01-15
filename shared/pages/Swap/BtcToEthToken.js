@@ -157,8 +157,14 @@ export default class BtcToEthToken extends Component {
     linked.destinationBuyAddress.check((value) => value !== '', 'Please enter ETH address for tokens')
     return (
       <div className={this.props.styles.swapContainer}>
-        {(!enoughtBalance && flow.step === 4) ? ( <div className="swapStep-4">
-          <DepositWindow currencyData={currencyData} swap={swap} flow={swap.flow.state} /> </div> ) : (<SwapProgress data={flow} name="BTC2ETH" stepLength={8} />)
+        {(!enoughtBalance && flow.step === 4) ?
+          (
+            <div className="swapStep-4">
+              <DepositWindow currencyData={currencyData} swap={swap} flow={swap.flow.state} />
+            </div>) :
+          (
+            <SwapProgress data={flow} name="BTC2ETH" stepLength={8} />
+          )
         }
         <SwapList data={flow} />
 

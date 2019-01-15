@@ -125,7 +125,6 @@ export default class SwapProgress extends Component {
     return (
       <div styleName="overlay">
         <div styleName="container">
-          {/*<span styleName="steps">{this.props.data.step} / {this.props.stepLength} steps</span>*/}
           <div styleName="stepContainer">
             <div styleName={progress > 180 ? 'progress-pie-chart gt-50' : 'progress-pie-chart'}>
               <div styleName="ppc-progress">

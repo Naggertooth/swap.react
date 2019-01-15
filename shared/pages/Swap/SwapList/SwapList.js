@@ -29,12 +29,22 @@ export default class SwapList extends Component {
           this.props.data.step >= 1 ? (
             <div styleName={this.props.data.step >= 1 && this.props.data.step < 2 ? 'stepItem active' : 'stepItem active checked'}>
               <span styleName="stepNumber">{this.props.data.step >= 1 && this.props.data.step < 2 ? '1' : <i className="fas fa-check" />}</span>
-              <p styleName="stepText">Confirmation processing</p>
+              <p styleName="stepText">
+                <FormattedMessage
+                  id="BtcToEthToken34"
+                  defaultMessage="Confirmation processing" />
+              </p>
             </div>
           ) : (
             <div styleName="stepItem">
-              <span styleName="stepNumber">1</span>
-              <p styleName="stepText">Confirmation processing</p>
+              <span styleName="stepNumber">
+                {1}
+              </span>
+              <p styleName="stepText">
+                <FormattedMessage
+                  id="BtcToEthToken43"
+                  defaultMessage="Confirmation processing" />
+              </p>
             </div>
           )
         }
@@ -43,12 +53,20 @@ export default class SwapList extends Component {
           this.props.data.step >= 2 || (this.props.data.step > 2 && this.props.data.step <= 8) ? (
             <div styleName={this.props.data.step >= 2 && this.props.data.step < 5  ? 'stepItem active' : 'stepItem active checked'}>
               <span styleName="stepNumber">{this.props.data.step >= 2 && this.props.data.step < 5 ? '2' : <i className="fas fa-check" />}</span>
-              <p styleName="stepText">Bitcoin deposition</p>
+              <p styleName="stepText">
+                <FormattedMessage
+                  id="BtcToEthToken58"
+                  defaultMessage="Bitcoin deposition" />
+              </p>
             </div>
           ) : (
             <div styleName="stepItem">
-              <span styleName="stepNumber">2</span>
-              <p styleName="stepText">Bitcoin deposition</p>
+              <span styleName="stepNumber">{2}</span>
+              <p styleName="stepText">
+                <FormattedMessage
+                  id="BtcToEthToken67"
+                  defaultMessage="Bitcoin deposition" />
+              </p>
             </div>
           )
         }
@@ -57,12 +75,20 @@ export default class SwapList extends Component {
           this.props.data.step >= 5 ? (
             <div styleName={this.props.data.step >= 5 && this.props.data.step < 6 ? 'stepItem active' : 'stepItem active checked'}>
               <span styleName="stepNumber">{this.props.data.step >= 5 && this.props.data.step < 6 ? '3' : <i className="fas fa-check" />}</span>
-              <p styleName="stepText">Swap tokens deposition</p>
+              <p styleName="stepText">
+                <FormattedMessage
+                  id="BtcToEthToken80"
+                  defaultMessage="Swap tokens deposition" />
+              </p>
             </div>
           ) : (
             <div styleName="stepItem">
-              <span styleName="stepNumber">3</span>
-              <p styleName="stepText">Swap tokens deposition</p>
+              <span styleName="stepNumber">{3}</span>
+              <p styleName="stepText">
+                <FormattedMessage
+                  id="BtcToEthToken89"
+                  defaultMessage="Swap tokens deposition" />
+              </p>
             </div>
           )
         }
@@ -71,12 +97,20 @@ export default class SwapList extends Component {
           this.props.data.step >= 6 ? (
             <div styleName={this.props.data.step >= 6 && this.props.data.step < 7 ? 'stepItem active' : 'stepItem active checked'}>
               <span styleName="stepNumber">{this.props.data.step >= 6 && this.props.data.step < 7 ? '4' : <i className="fas fa-check" />}</span>
-              <p styleName="stepText">Withdrawing swap tokens from a contract</p>
+              <p styleName="stepText">
+                <FormattedMessage
+                  id="BtcToEthToken102"
+                  defaultMessage="Withdrawing swap tokens from a contract" />
+              </p>
             </div>
           ) : (
             <div styleName="stepItem">
-              <span styleName="stepNumber">4</span>
-              <p styleName="stepText">Withdrawing swap tokens from a contract</p>
+              <span styleName="stepNumber">{4}</span>
+              <p styleName="stepText">
+                <FormattedMessage
+                  id="BtcToEthToken111"
+                  defaultMessage="Withdrawing swap tokens from a contract" />
+              </p>
             </div>
           )
         }
@@ -84,12 +118,20 @@ export default class SwapList extends Component {
           this.props.data.step >= 7 ? (
             <div styleName={this.props.data.step >= 7 && this.props.data.step < 8 ? 'stepItem active' : 'stepItem active checked'}>
               <span styleName="stepNumber">{this.props.data.step >= 7 && this.props.data.step < 8 ? '5' : <i className="fas fa-check" />}</span>
-              <p styleName="stepText">Finished!</p>
+              <p styleName="stepText">
+                <FormattedMessage
+                  id="BtcToEthToken123"
+                  defaultMessage="Finished!" />
+              </p>
             </div>
           ) : (
             <div styleName="stepItem">
-              <span styleName="stepNumber">5</span>
-              <p styleName="stepText">Finished!</p>
+              <span styleName="stepNumber">{5}</span>
+              <p styleName="stepText">
+                <FormattedMessage
+                  id="BtcToEthToken132"
+                  defaultMessage="Finished!" />
+              </p>
             </div>
           )
         }
