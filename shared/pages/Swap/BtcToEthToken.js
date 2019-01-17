@@ -45,6 +45,7 @@ export default class BtcToEthToken extends Component {
       enabledButton: false,
       isAddressCopied: false,
       isPressCtrl: false,
+      paddingContainerValue: 0,
       destinationAddressTimer: true,
       destinationBuyAddress: (this.swap.destinationBuyAddress) ? this.swap.destinationBuyAddress : swapApp.services.auth.accounts.eth.address,
       isTextCopied: false,
@@ -56,7 +57,12 @@ export default class BtcToEthToken extends Component {
 
   componentDidMount() {
     this.swap.on('state update', this.handleFlowStateUpdate)
+    this.handleCheckPaddingValue()
   }
+  //
+  // componentDidUpdatet() {
+  //
+  // }
 
   componentWillUnmount() {
     this.swap.off('state update', this.handleFlowStateUpdate)
@@ -67,6 +73,9 @@ export default class BtcToEthToken extends Component {
     this.setState({
       flow: values,
     })
+
+    this.handleCheckPaddingValue()
+
   }
 
   tryRefund = () => {
@@ -136,15 +145,65 @@ export default class BtcToEthToken extends Component {
     })
   }
 
+  handleCheckPaddingValue = () => {
+
+    const { flow, paddingContainerValue, enoughtBalance } = this.state
+
+    const value = 60
+    const padding = value*flow.step
+    const padding4 = value*(flow.step - 1)
+
+    if (flow.step === 1) {
+      this.setState(() => ({
+        paddingContainerValue: padding
+      }))
+    }
+    if (flow.step === 2) {
+      this.setState(() => ({
+        paddingContainerValue: 120
+      }))
+    }
+    if (!enoughtBalance && flow.step === 4) {
+      this.setState(() => ({
+           paddingContainerValue: 120
+      }))
+    }
+    if (flow.step === 5) {
+      this.setState(() => ({
+        paddingContainerValue: 180
+      }))
+    }
+    if (flow.step === 6) {
+      this.setState(() => ({
+        paddingContainerValue: 240
+      }))
+    }
+    if (flow.step === 7) {
+      this.setState(() => ({
+        paddingContainerValue: 300
+      }))
+    }
+  }
+
   handlerBuyWithCreditCard = (e) => {
     e.preventDefault()
   }
 
   render() {
     const { children, disabledTimer, swap, currencyData } = this.props
-    const { currencyAddress, secret, flow, enabledButton, destinationAddressTimer, continuerSwap, isTextCopied, ethAddress, enoughtBalance, window } = this.state
+    const { currencyAddress, secret, flow, enabledButton, destinationAddressTimer, continuerSwap, isTextCopied, ethAddress, enoughtBalance, window, paddingContainerValue } = this.state
 
     const linked = Link.all(this, 'destinationBuyAddress')
+
+    // console.log(swap.flow.stepNumbers.end)
+    //
+    // let paddingContainerValue = 0
+    //
+    // for(var i = 0; i < swap.flow.stepNumbers.end; i++) {
+    //   // alert('1')
+    // }
+
+    // console.log(paddingContainerValue)
 
     const headingStyle = {
       color: '#5100dc',
@@ -156,10 +215,10 @@ export default class BtcToEthToken extends Component {
 
     linked.destinationBuyAddress.check((value) => value !== '', 'Please enter ETH address for tokens')
     return (
-      <div className={this.props.styles.swapContainer}>
+      <div className={this.props.styles.swapContainer} style={{ paddingTop: `${paddingContainerValue}px` }}>
         {(!enoughtBalance && flow.step === 4) ?
           (
-            <div className="swapStep-4">
+            <div className={this.props.styles.swapDepositWindow}>
               <DepositWindow currencyData={currencyData} swap={swap} flow={swap.flow.state} />
             </div>) :
           (
@@ -167,6 +226,7 @@ export default class BtcToEthToken extends Component {
           )
         }
         <SwapList data={flow} />
+
 
         <div className={this.props.styles.swapInfo}>
           {

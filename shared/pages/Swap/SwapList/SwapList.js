@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 
 import actions from 'redux/actions'
 import { links } from 'helpers'
+import { isMobile } from 'react-device-detect'
 
 import CSSModules from 'react-css-modules'
 import styles from './SwapList.scss'
@@ -51,7 +52,7 @@ export default class SwapList extends Component {
 
         {
           this.props.data.step >= 2 || (this.props.data.step > 2 && this.props.data.step <= 8) ? (
-            <div styleName={this.props.data.step >= 2 && this.props.data.step < 5  ? 'stepItem active' : 'stepItem active checked'}>
+            <div style={{ paddingTop: isMobile ? '50px' : '' }} styleName={this.props.data.step >= 2 && this.props.data.step < 5  ? 'stepItem active' : 'stepItem active checked'}>
               <span styleName="stepNumber">{this.props.data.step >= 2 && this.props.data.step < 5 ? '2' : <i className="fas fa-check" />}</span>
               <p styleName="stepText">
                 <FormattedMessage
@@ -73,7 +74,7 @@ export default class SwapList extends Component {
 
         {
           this.props.data.step >= 5 ? (
-            <div styleName={this.props.data.step >= 5 && this.props.data.step < 6 ? 'stepItem active' : 'stepItem active checked'}>
+            <div style={{ paddingTop: '100px' }} styleName={this.props.data.step >= 5 && this.props.data.step < 6 ? 'stepItem active' : 'stepItem active checked'}>
               <span styleName="stepNumber">{this.props.data.step >= 5 && this.props.data.step < 6 ? '3' : <i className="fas fa-check" />}</span>
               <p styleName="stepText">
                 <FormattedMessage
@@ -95,7 +96,7 @@ export default class SwapList extends Component {
 
         {
           this.props.data.step >= 6 ? (
-            <div styleName={this.props.data.step >= 6 && this.props.data.step < 7 ? 'stepItem active' : 'stepItem active checked'}>
+            <div style={{ paddingTop: '150px' }} styleName={this.props.data.step >= 6 && this.props.data.step < 7 ? 'stepItem active' : 'stepItem active checked'}>
               <span styleName="stepNumber">{this.props.data.step >= 6 && this.props.data.step < 7 ? '4' : <i className="fas fa-check" />}</span>
               <p styleName="stepText">
                 <FormattedMessage
@@ -116,7 +117,7 @@ export default class SwapList extends Component {
         }
         {
           this.props.data.step >= 7 ? (
-            <div styleName={this.props.data.step >= 7 && this.props.data.step < 8 ? 'stepItem active' : 'stepItem active checked'}>
+            <div style={{ paddingTop: '200px' }} styleName={this.props.data.step >= 7 && this.props.data.step < 8 ? 'stepItem active' : 'stepItem active checked'}>
               <span styleName="stepNumber">{this.props.data.step >= 7 && this.props.data.step < 8 ? '5' : <i className="fas fa-check" />}</span>
               <p styleName="stepText">
                 <FormattedMessage

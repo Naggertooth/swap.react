@@ -55,3 +55,18 @@
     color: #5100dc;
   }
 }
+
+@include media-mobile {
+  .active {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .stepList {
+    margin-left: 0;
+    padding-top: 20px;
+  }
+  .stepText {
+    font-size: 12px;
+  }
+}

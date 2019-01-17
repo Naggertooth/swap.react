@@ -118,7 +118,6 @@ export default class SwapProgress extends Component {
     }
   }
 
-
   render() {
     const progress = Math.floor(360 / this.props.stepLength * this.props.data.step)
 
@@ -126,23 +125,25 @@ export default class SwapProgress extends Component {
       <div styleName="overlay">
         <div styleName="container">
           <div styleName="stepContainer">
-            <div styleName={progress > 180 ? 'progress-pie-chart gt-50' : 'progress-pie-chart'}>
-              <div styleName="ppc-progress">
-                <div styleName="ppc-progress-fill" style={{ transform: `rotate(${progress}deg)` }} />
+            <div styleName="progressContainer">
+              <div styleName={progress > 180 ? 'progress-pie-chart gt-50' : 'progress-pie-chart'}>
+                <div styleName="ppc-progress">
+                  <div styleName="ppc-progress-fill" style={{ transform: `rotate(${progress}deg)` }} />
+                </div>
+              </div>
+              <div styleName="step">
+                <div styleName="stepImg">
+                  {this.handleStepChangeImage(this.props.data.step)}
+                </div>
               </div>
             </div>
-            <div styleName="step">
-              <div styleName="stepImg">
-                {this.handleStepChangeImage(this.props.data.step)}
-              </div>
-              <div styleName="stepInfo">
-                {
-                  this.props.name === 'BTC2ETH' && <h1 styleName="stepHeading">{this.handleStepBtcToEth(this.props.data.step)}</h1>
-                }
-                {
-                  this.props.name === 'ETH2BTC' && <h1 styleName="stepHeading">{this.handleStepEthToBtc(this.props.data.step)}</h1>
-                }
-              </div>
+            <div styleName="stepInfo">
+              {
+                this.props.name === 'BTC2ETH' && <h1 styleName="stepHeading">{this.handleStepBtcToEth(this.props.data.step)}</h1>
+              }
+              {
+                this.props.name === 'ETH2BTC' && <h1 styleName="stepHeading">{this.handleStepEthToBtc(this.props.data.step)}</h1>
+              }
             </div>
           </div>
         </div>

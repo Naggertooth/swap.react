@@ -272,6 +272,12 @@ $size: 200px;
   font-size: 26px;
 }
 
+.progressContainer {
+  color: #000;
+  // transform: scale(0.8);
+  // margin-top: -80px;
+}
+
 @keyframes blink {
   0% {
     opacity: .2;
@@ -296,7 +302,7 @@ $size: 200px;
 
 @include media-mobile {
   .container {
-    width: 85%;
+    width: 100%;
   }
   .info {
     margin-top: 5px;
@@ -311,5 +317,34 @@ $size: 200px;
   }
   .link {
     font-size: 13px;
+  }
+  .stepContainer {
+    width: 100%;
+  }
+  .stepList {
+    padding-top: 0;
+  }
+  .step {
+    border: none;
+  }
+  .stepInfo {
+    margin-top: -80px;
+  }
+  .progressContainer {
+    color: #000;
+    transform: scale(0.8);
+    margin-top: -80px;
+  }
+  .overlay {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 20px;
+    margin-bottom: 0px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    width: 100%;
+  }
+  .stepHeading {
+    color: #000;
+    font-size: 20px;
   }
 }
