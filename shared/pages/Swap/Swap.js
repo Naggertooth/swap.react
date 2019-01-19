@@ -92,7 +92,6 @@ export default class SwapComponent extends PureComponent {
         ethData,
         SwapComponent,
         currencyData,
-        step: swap.flow.state.step,
         ethAddress: ethData[0].address,
       })
 
@@ -189,7 +188,7 @@ export default class SwapComponent extends PureComponent {
 
   render() {
     const { peer } = this.props
-    const { swap, SwapComponent, currencyData, isAmountMore, ethData, continueSwap, enoughtBalance, depositWindow, step, ethAddress } = this.state
+    const { swap, SwapComponent, currencyData, isAmountMore, ethData, continueSwap, enoughtBalance, depositWindow, ethAddress } = this.state
 
 
     if (!swap || !SwapComponent || !peer || !isAmountMore) {
@@ -216,7 +215,7 @@ export default class SwapComponent extends PureComponent {
             )
           }
           <SwapController swap={swap} />
-          {step >= 5 && !continueSwap && (<FeeControler ethAddress={ethAddress} />)}
+          {swap.flow.state.step >= 5 && !continueSwap && (<FeeControler ethAddress={ethAddress} />)}
         </SwapComponent>
         {
           (isFinished) && (

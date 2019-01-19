@@ -32,7 +32,6 @@ export default class FeeControler extends Component {
 
     return (
       <Fragment>
-      <img src={icon} />
         <CopyToClipboard text={ethAddress} data-tut="reactour__address">
           <h3 styleName="main" onClick={this.handleCopy}>
             <FormattedMessage
