@@ -41,11 +41,11 @@ export default class FeeControler extends Component {
             />
           </h3>
         </CopyToClipboard>
-      {isAddressCopied &&
-        (<p>
-          <FormattedMessage id="FeeControler42" defaultMessage="Address copied to clipboard" />
-        </p>)
-      }
+        {isAddressCopied &&
+          (<p>
+            <FormattedMessage id="FeeControler42" defaultMessage="Address copied to clipboard" />
+          </p>)
+        }
       </Fragment>
     )
   }
