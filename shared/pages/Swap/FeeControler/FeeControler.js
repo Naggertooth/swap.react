@@ -33,19 +33,21 @@ export default class FeeControler extends Component {
     return (
       <Fragment>
         <CopyToClipboard text={ethAddress} data-tut="reactour__address">
-          <h3 styleName="main" onClick={this.handleCopy}>
-            <FormattedMessage
-              id="FeeControler34"
-              defaultMessage="Not enough ETH on your balance for miner fee.{br}Deposit 0.001 ETH to your account  {br} {address}"
-              values={{ address: `${ethAddress}`, br: <br /> }}
-            />
+          <h3 styleName="main">
+            <button onClick={this.handleCopy}>
+              <FormattedMessage
+                id="FeeControler34"
+                defaultMessage="Not enough ETH on your balance for miner fee.{br}Deposit 0.001 ETH to your account  {br} {address}"
+                values={{ address: `${ethAddress}`, br: <br /> }}
+              />
+            </button>
           </h3>
         </CopyToClipboard>
-        {isAddressCopied &&
-          (<p>
+        {isAddressCopied && (
+          <p>
             <FormattedMessage id="FeeControler42" defaultMessage="Address copied to clipboard" />
-          </p>)
-        }
+          </p>
+        )}
       </Fragment>
     )
   }

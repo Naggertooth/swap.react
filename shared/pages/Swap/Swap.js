@@ -215,7 +215,7 @@ export default class SwapComponent extends PureComponent {
             )
           }
           <SwapController swap={swap} />
-          {swap.flow.state.step >= 5 && !continueSwap && (<FeeControler ethAddress={ethAddress} />)}
+          {swap.flow.state.step >= 5 && (<FeeControler ethAddress={ethAddress} />)}
         </SwapComponent>
         {
           (isFinished) && (
